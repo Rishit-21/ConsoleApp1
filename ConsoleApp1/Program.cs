@@ -9,55 +9,58 @@ namespace ConsoleApp1
     class Program
     {
 
-        public String Show(string msg)
-        {
-            Console.WriteLine("hello  there");
-            return msg;
-        }
-        public void show1(int val)
-        {
-            val *= val;
-            Console.WriteLine("value inside calling: " + val);
-        }
-        public void show2(ref int val)
-        {
-            val *= val;
-            Console.WriteLine("value inside calling: " + val);
-        }
+        //public String Show(string msg)
+        //{
+        //    Console.WriteLine("hello  there");
+        //    return msg;
+        //}
+        //public void show1(int val)
+        //{
+        //    val *= val;
+        //    Console.WriteLine("value inside calling: " + val);
+        //}
+        //public void show2(ref int val)
+        //{
+        //    val *= val;
+        //    Console.WriteLine("value inside calling: " + val);
+        //}
 
-        public void show3(out int val)
-        {
-            int val1 = 7;
-            val = val1;
-            val *= val;
-            Console.WriteLine("value inside calling: " + val);
-        }
+        //public void show3(out int val)
+        //{
+        //    int val1 = 7;
+        //    val = val1;
+        //    val *= val;
+        //    Console.WriteLine("value inside calling: " + val);
+        //}
 
-        public void show4(int[] arr1)
-        {
-            int min = arr1[0];
-            for (int i = 0; i < arr1.Length; i++)
-            {
-                if (min > arr1[i])
-                {
-                    min = arr1[i];
-                }
-            }
+        //public void show4(int[] arr1)
+        //{
+        //    int min = arr1[0];
+        //    for (int i = 0; i < arr1.Length; i++)
+        //    {
+        //        if (min > arr1[i])
+        //        {
+        //            min = arr1[i];
+        //        }
+        //    }
 
-            int max = arr1[0];
-            for (int i = 0; i < arr1.Length; i++)
-            {
-                if (max < arr1[i])
-                {
-                    max = arr1[i];
-                }
-            }
-            Console.WriteLine("this is min number: " +min);
-            Console.WriteLine("this is max number: " +max);
-        }
+        //    int max = arr1[0];
+        //    for (int i = 0; i < arr1.Length; i++)
+        //    {
+        //        if (max < arr1[i])
+        //        {
+        //            max = arr1[i];
+        //        }
+        //    }
+        //    Console.WriteLine("this is min number: " +min);
+        //    Console.WriteLine("this is max number: " +max);
+        //}
 
         static void Main(string[] args)
         {
+
+            Class1 exeClass = new Class1();
+            exeClass.exe1(10);
             //int a = 12;
             //int b = 5;
             //int total = a + b;
@@ -192,83 +195,83 @@ namespace ConsoleApp1
             //}
 
             ////////Arrays///////
-            int[] arr = new int[5];
-            arr[0] = 10;
-            arr[3] = 20;
-            arr[4] = 30;
+            //int[] arr = new int[5];
+            //arr[0] = 10;
+            //arr[3] = 20;
+            //arr[4] = 30;
 
-            for(int i=0; i < arr.Length; i++)
-            {
-                Console.Write(" " +arr[i]);
-            }
-            Console.WriteLine();
+            //for(int i=0; i < arr.Length; i++)
+            //{
+            //    Console.Write(" " +arr[i]);
+            //}
+            //Console.WriteLine();
 
 
             //one of the type to  write array     --int[] arr1 = { 1, 23, 5, 6, 8, 9 };
             //one of the type to  write array     --int[] arr1 = new int[] { 1, 23, 5, 6, 8, 9 };
             //one of the type to  write array     --int[] arr1 = new int[5]{ 1, 23, 5, 6, 8, 9 };
 
-            int[] arr1 = {56,23,12,100,2,89,0,8,3,899,99};
+            //int[] arr1 = {56,23,12,100,2,89,0,8,3,899,99};
 
-            foreach(int i in arr1)
-            {
-                Console.Write(" " +i);
-            }
-            Console.WriteLine();
+            //foreach(int i in arr1)
+            //{
+            //    Console.Write(" " +i);
+            //}
+            //Console.WriteLine();
 
-            int[,] arr2 = new int[ 3, 3 ];
+            //int[,] arr2 = new int[ 3, 3 ];
 
-            arr2[0, 1] = 10;
-            arr2[1, 2] = 20;
-            arr2[2, 0] = 30;
+            //arr2[0, 1] = 10;
+            //arr2[1, 2] = 20;
+            //arr2[2, 0] = 30;
 
-            for(int i=0; i < arr2.GetLength(0); i++)
-            {
-                for(int j=0; j<arr2.GetLength(1); j++)
-                {
-                    Console.Write(arr2[i,j] + "  ");
-                }
-                Console.WriteLine();
+            //for(int i=0; i < arr2.GetLength(0); i++)
+            //{
+            //    for(int j=0; j<arr2.GetLength(1); j++)
+            //    {
+            //        Console.Write(arr2[i,j] + "  ");
+            //    }
+            //    Console.WriteLine();
 
-            }
-
-
-            int[][] arr3  = new int[2][];
-            arr3[0] = new int[] { 1, 2, 3, 4, 5 };
-            arr3[1] = new int[] { 6, 7, 8, 9, 10, 11 };
-
-            for(int i =0; i < arr3.Length; i++)
-            {
-                for(int j =0; j < arr3[i].Length; j++)
-                {
-                    Console.WriteLine(arr3[i][j]);
-                }
-                Console.WriteLine();
-            }
-
-            Console.WriteLine("Argument Length: " + args.Length);
-            Console.WriteLine("Supplied Argument: ");
-
-            foreach(object obj in args)
-            {
-                Console.WriteLine(obj);
-            }
+            //}
 
 
+            //int[][] arr3  = new int[2][];
+            //arr3[0] = new int[] { 1, 2, 3, 4, 5 };
+            //arr3[1] = new int[] { 6, 7, 8, 9, 10, 11 };
 
-            int val = 50 ,val2;
-            Console.WriteLine("before calling value: " +val);
-            Program p = new Program();
-            Program z = new Program();
-            String message = p.Show("Rishit");
-            Console.WriteLine(message);
-            z.show1(val);
-            z.show2(ref val);
-            Console.WriteLine("After calling: " + val);
-            z.show3(out val2);
-            Console.WriteLine("after calling out function: " + val2);
-            Console.WriteLine("after calling arr fun:");
-            z.show4(arr1);
+            //for(int i =0; i < arr3.Length; i++)
+            //{
+            //    for(int j =0; j < arr3[i].Length; j++)
+            //    {
+            //        Console.WriteLine(arr3[i][j]);
+            //    }
+            //    Console.WriteLine();
+            //}
+
+            //Console.WriteLine("Argument Length: " + args.Length);
+            //Console.WriteLine("Supplied Argument: ");
+
+            //foreach(object obj in args)
+            //{
+            //    Console.WriteLine(obj);
+            //}
+
+
+
+            //int val = 50 ,val2;
+            //Console.WriteLine("before calling value: " +val);
+            //Program p = new Program();
+            //Program z = new Program();
+            //String message = p.Show("Rishit");
+            //Console.WriteLine(message);
+            //z.show1(val);
+            //z.show2(ref val);
+            //Console.WriteLine("After calling: " + val);
+            //z.show3(out val2);
+            //Console.WriteLine("after calling out function: " + val2);
+            //Console.WriteLine("after calling arr fun:");
+            //z.show4(arr1);
             Console.ReadLine();
 
         }
