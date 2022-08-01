@@ -6,9 +6,25 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
+    public class Student
+    {
+        public int id;
+        public string name;
+        public   long enroll = 190470107036;
+
+        public Student(int id,string name)
+        {
+            this.id = id;
+            this.name = name;
+
+        }
+        public void display()
+        {
+            Console.WriteLine(id + " " + name+" "+enroll);
+        }
+    }
     class Program
     {
-
         //public String Show(string msg)
         //{
         //    Console.WriteLine("hello  there");
@@ -60,7 +76,26 @@ namespace ConsoleApp1
         {
 
             Class1 exeClass = new Class1();
-            exeClass.exe1(10);
+            Console.Write("Enter number of rows in pattern u want: ");
+
+            int n = Convert.ToInt32(Console.ReadLine());
+            exeClass.exe1(n);
+
+
+
+
+            ///Obj and classes
+            ///
+
+            Student s1 = new Student(21, "Rishit");
+            s1.enroll = 190470107029;
+            Student s2 = new Student(25, "RK");
+            //s1.insert(21,"Rishit");
+            //s2.Student();
+            s1.display();
+            s2.display();
+
+
             //int a = 12;
             //int b = 5;
             //int total = a + b;
@@ -219,30 +254,31 @@ namespace ConsoleApp1
             //}
             //Console.WriteLine();
 
-            //int[,] arr2 = new int[ 3, 3 ];
+            int[,] arr2 = new int[3, 3];
 
-            //arr2[0, 1] = 10;
-            //arr2[1, 2] = 20;
-            //arr2[2, 0] = 30;
+            arr2[0, 1] = 10;
+            arr2[1, 2] = 20;
+            arr2[2, 0] = 30;
 
-            //for(int i=0; i < arr2.GetLength(0); i++)
-            //{
-            //    for(int j=0; j<arr2.GetLength(1); j++)
-            //    {
-            //        Console.Write(arr2[i,j] + "  ");
-            //    }
-            //    Console.WriteLine();
+            for (int i = 0; i < arr2.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr2.GetLength(1); j++)
+                {
+                    Console.Write(arr2[i, j] + "  ");
+                }
+                Console.WriteLine();
 
-            //}
+            }
 
 
-            //int[][] arr3  = new int[2][];
+            //int[][] arr3 = new int[3][];
             //arr3[0] = new int[] { 1, 2, 3, 4, 5 };
             //arr3[1] = new int[] { 6, 7, 8, 9, 10, 11 };
+            //arr3[2] = new int[] { 6, 7, 8, 9, 10, 11 };
 
-            //for(int i =0; i < arr3.Length; i++)
+            //for (int i = 0; i < arr3.Length; i++)
             //{
-            //    for(int j =0; j < arr3[i].Length; j++)
+            //    for (int j = 0; j < arr3[i].Length; j++)
             //    {
             //        Console.WriteLine(arr3[i][j]);
             //    }
