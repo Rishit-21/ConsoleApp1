@@ -6,71 +6,91 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
+    public class Subjects
+    {
+        public string sub1, sub2, sub3;
+        public Subjects(string sub1,string sub2,string sub3)
+        {
+            this.sub1 = sub1;
+            this.sub2 = sub2;
+            this.sub3 = sub3;
+        }
+    }
     public class Student
     {
         public int id;
         public string name;
-        public   long enroll = 190470107036;
+        public Subjects subjects;
+        //public   long enroll = 190470107036;
 
-        public Student(int id,string name)
+        public Student(int id,string name,Subjects subjects)
         {
             this.id = id;
             this.name = name;
+            this.subjects = subjects;
 
         }
         public void display()
         {
-            Console.WriteLine(id + " " + name+" "+enroll);
+            Console.WriteLine(id + " " + name+"   " +subjects.sub1+" "+subjects.sub2+"  "+subjects.sub3);
+        }
+        ~Student()
+        {
+            Console.WriteLine("its destructor");
+            Console.ReadLine();
         }
     }
     class Program
     {
-        //public String Show(string msg)
-        //{
-        //    Console.WriteLine("hello  there");
-        //    return msg;
-        //}
-        //public void show1(int val)
-        //{
-        //    val *= val;
-        //    Console.WriteLine("value inside calling: " + val);
-        //}
-        //public void show2(ref int val)
-        //{
-        //    val *= val;
-        //    Console.WriteLine("value inside calling: " + val);
-        //}
+        public String Show(string msg)
+        {
+            Console.WriteLine("hello  there");
+            return msg;
+        }
+        public void show1(int val)
+        {
+            val *= val;
+            Console.WriteLine("value inside calling: " + val);
+        }
+        public void show2(ref int val)
+        {
+            val *= val;
+            Console.WriteLine("value inside calling: " + val);
+        }
+        /// out param eg
+        public int show3(out int val,out bool check)
+        {
+            int val1 = 7;
+            val = val1;
+            val *= val;
+            check = val > 100 ? true : false;
 
-        //public void show3(out int val)
-        //{
-        //    int val1 = 7;
-        //    val = val1;
-        //    val *= val;
-        //    Console.WriteLine("value inside calling: " + val);
-        //}
+            Console.WriteLine("value inside calling: " + val);
+            return val;
+        }
 
-        //public void show4(int[] arr1)
-        //{
-        //    int min = arr1[0];
-        //    for (int i = 0; i < arr1.Length; i++)
-        //    {
-        //        if (min > arr1[i])
-        //        {
-        //            min = arr1[i];
-        //        }
-        //    }
+        public void show4(int[] arr1)
+        {
+            int min = arr1[0];
+            for (int i = 0; i < arr1.Length; i++)
+            {
+                if (min > arr1[i])
+                {
+                    min = arr1[i];
+                }
+            }
 
-        //    int max = arr1[0];
-        //    for (int i = 0; i < arr1.Length; i++)
-        //    {
-        //        if (max < arr1[i])
-        //        {
-        //            max = arr1[i];
-        //        }
-        //    }
-        //    Console.WriteLine("this is min number: " +min);
-        //    Console.WriteLine("this is max number: " +max);
-        //}
+            int max = arr1[0];
+            for (int i = 0; i < arr1.Length; i++)
+            {
+                if (max < arr1[i])
+                {
+                    max = arr1[i];
+                }
+            }
+            Console.WriteLine("this is min number: " + min);
+            Console.WriteLine("this is max number: " + max);
+        }
 
         static void Main(string[] args)
         {
@@ -86,10 +106,9 @@ namespace ConsoleApp1
 
             ///Obj and classes
             ///
-
-            Student s1 = new Student(21, "Rishit");
-            s1.enroll = 190470107029;
-            Student s2 = new Student(25, "RK");
+            Subjects sub = new Subjects("AJAVA", "ADA", "DBMS");
+            Student s1 = new Student(21, "Rishit",sub);
+            Student s2 = new Student(25, "RK",sub);
             //s1.insert(21,"Rishit");
             //s2.Student();
             s1.display();
@@ -246,7 +265,7 @@ namespace ConsoleApp1
             //one of the type to  write array     --int[] arr1 = new int[] { 1, 23, 5, 6, 8, 9 };
             //one of the type to  write array     --int[] arr1 = new int[5]{ 1, 23, 5, 6, 8, 9 };
 
-            //int[] arr1 = {56,23,12,100,2,89,0,8,3,899,99};
+            int[] arr1 = { 56, 23, 12, 100, 2, 89, 0, 8, 3, 899, 99 };
 
             //foreach(int i in arr1)
             //{
@@ -254,21 +273,21 @@ namespace ConsoleApp1
             //}
             //Console.WriteLine();
 
-            int[,] arr2 = new int[3, 3];
+            //int[,] arr2 = new int[3, 3];
 
-            arr2[0, 1] = 10;
-            arr2[1, 2] = 20;
-            arr2[2, 0] = 30;
+            //arr2[0, 1] = 10;
+            //arr2[1, 2] = 20;
+            //arr2[2, 0] = 30;
 
-            for (int i = 0; i < arr2.GetLength(0); i++)
-            {
-                for (int j = 0; j < arr2.GetLength(1); j++)
-                {
-                    Console.Write(arr2[i, j] + "  ");
-                }
-                Console.WriteLine();
+            //for (int i = 0; i < arr2.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < arr2.GetLength(1); j++)
+            //    {
+            //        Console.Write(arr2[i, j] + "  ");
+            //    }
+            //    Console.WriteLine();
 
-            }
+            //}
 
 
             //int[][] arr3 = new int[3][];
@@ -295,20 +314,23 @@ namespace ConsoleApp1
 
 
 
-            //int val = 50 ,val2;
-            //Console.WriteLine("before calling value: " +val);
-            //Program p = new Program();
-            //Program z = new Program();
-            //String message = p.Show("Rishit");
-            //Console.WriteLine(message);
-            //z.show1(val);
-            //z.show2(ref val);
-            //Console.WriteLine("After calling: " + val);
-            //z.show3(out val2);
-            //Console.WriteLine("after calling out function: " + val2);
-            //Console.WriteLine("after calling arr fun:");
-            //z.show4(arr1);
-            Console.ReadLine();
+            int val = 50, val2;
+            bool check;
+            Console.WriteLine("before calling value: " + val);
+            Program p = new Program();
+            Program z = new Program();
+            String message = p.Show("Rishit");
+            Console.WriteLine(message);
+            z.show1(val);
+            z.show2(ref val);
+            Console.WriteLine("After calling: " + val);
+
+            //// out parameter eg;
+            z.show3(out val2,out check);
+            Console.WriteLine("after calling out function: " + val2 +check);
+            Console.WriteLine("after calling arr fun:");
+            z.show4(arr1);
+     
 
         }
    
