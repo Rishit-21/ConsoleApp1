@@ -7,19 +7,93 @@ using System.Threading.Tasks;
 namespace ConsoleApp1
 {
 
+    /// interface
+    interface calcAdd1
+    {
+        int add(int a, int b);
+    }
+    interface calcSub1
+    {
+        int sub(int a, int b);
+    }
+    interface calcMlti1
+    {
+        int mlti(int a, int b);
+    }
+
+    class calculator : calcAdd1, calcSub1, calcMlti1
+    {
+        public int result1;
+        public int add(int a,int b)
+        {
+            result1 = a + b;
+            return result1;
+        }
+
+        public int result2;
+        public int sub(int a,int b)
+        {
+            result2 = a - b;
+            return result2;
+        }
+        public int result3;
+        public int mlti(int a,int b)
+        {
+            result3 = a * b;
+            return result3;
+
+        }
+    }
+
+    /// Encapsulation
     class Employee
     {
-        public int EmployeeId { get; set; }
-        public string EmployeeName { get; set; }
-        public string Address { get; set; }
+        private int EmployeeId;
+        public int empId
+        {
+            get
+            {
+                return EmployeeId;
+            }
+            set
+            {
+                EmployeeId = value;
+            }
+
+        }
+        private string EmployeeName;
+        public string empName
+        {
+            get
+            {
+                return EmployeeName;
+            }
+            set
+            {
+                EmployeeName = value;
+            }
+
+        }
+        private string Address;
+        public string add
+        {
+            get
+            {
+                return Address;
+            }
+            set
+            {
+                Address = value;
+            }
+
+        }
         public void ShowDetails()
         {
             Console.WriteLine("Employee Id : {0}, Name : {1}, Address : {2}", EmployeeId, EmployeeName, Address);
         }
     }
-    ///polymorph
+    ///polymorph////// and ///// overridding
     ///
-    
     public class calculator1
     {
         public virtual int calc(int a,int b)
@@ -165,6 +239,8 @@ namespace ConsoleApp1
             Console.WriteLine("this is max number: " + max);
         }
 
+
+     
         static void Main(string[] args)
         {
 
@@ -198,12 +274,21 @@ namespace ConsoleApp1
             c1 = new calcmulti();
             Console.WriteLine(c1.calc(10, 10));
 
+
+
             Employee emp = new Employee();
-            emp.EmployeeId = 1;
-            emp.EmployeeName = "Rishit";
-            emp.Address = "Rajkot";
+            emp.empId = 1;
+            emp.empName = "Rishit";
+            emp.add = "Rajkot";
             emp.ShowDetails();
-                
+
+            calculator cal = new calculator();
+            cal.add(5, 8);
+            Console.WriteLine(cal.result1);
+            cal.sub(5, 8);
+            Console.WriteLine(cal.result2);
+            cal.mlti(5, 8);
+            Console.WriteLine(cal.result3);
 
 
             ////basic conceptss
