@@ -20,8 +20,12 @@ namespace ConsoleApp1
     {
         int mlti(int a, int b);
     }
+    interface calcDiv
+    {
+        float div(int a, int b);
+    }
 
-    class calculator : calcAdd1, calcSub1, calcMlti1
+    class calculator : calcAdd1, calcSub1, calcMlti1,calcDiv
     {
         public int result1;
         public int add(int a,int b)
@@ -42,6 +46,16 @@ namespace ConsoleApp1
             result3 = a * b;
             return result3;
 
+        }
+        public int result4;
+        public float div(int a, int b)
+        {
+            
+            result4 = a / b;
+            return result4;
+
+            
+         
         }
     }
 
@@ -185,8 +199,16 @@ namespace ConsoleApp1
         }
 
     }
-    
-    
+
+    public class InvalidInput : Exception
+    {
+        public InvalidInput(string msg):base(msg)
+        {
+
+        }
+    }
+
+
     class Program
     {
         public String Show(string msg)
@@ -239,16 +261,29 @@ namespace ConsoleApp1
             Console.WriteLine("this is max number: " + max);
         }
 
-
-     
-        static void Main(string[] args)
+        
+        public static void validate(int n)
+        {
+            if (n > 26)
+            {
+                throw new InvalidInput("Enter Proper value btw 1 to 26");
+            }
+        }
+    static void Main(string[] args)
         {
 
             Class1 exeClass = new Class1();
             Console.Write("Enter number of rows in pattern u want: ");
+            
 
             int n = Convert.ToInt32(Console.ReadLine());
-            exeClass.exe1(n);
+
+            try
+            {
+                validate(n);
+                exeClass.exe1(n);
+            }
+            catch(InvalidInput e) { Console.WriteLine(e);}
 
 
 
@@ -282,13 +317,22 @@ namespace ConsoleApp1
             emp.add = "Rajkot";
             emp.ShowDetails();
 
-            calculator cal = new calculator();
-            cal.add(5, 8);
-            Console.WriteLine(cal.result1);
-            cal.sub(5, 8);
-            Console.WriteLine(cal.result2);
-            cal.mlti(5, 8);
-            Console.WriteLine(cal.result3);
+            try
+            {
+                calculator cal = new calculator();
+                cal.add(5, 8);
+                Console.WriteLine(cal.result1);
+                cal.sub(5, 8);
+                Console.WriteLine(cal.result2);
+                cal.mlti(5, 8);
+                Console.WriteLine(cal.result3);
+                cal.div(5, 0);
+                Console.WriteLine(cal.result4);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
 
 
             ////basic conceptss
